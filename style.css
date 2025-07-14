@@ -82,19 +82,26 @@ tr:nth-child(even) {
 }
 
 /* Forms (example, add your form HTML to use these styles) */
-input, select, textarea, button {
+input, select, textarea {
   font-size: 1em;
   padding: 0.5em;
   margin: 0.5em 0;
   border-radius: 6px;
   border: 1px solid #b3d1e6;
 }
-button {
+.button {
   background: #2a5d84;
   color: #fff;
   border: none;
   cursor: pointer;
+  display: block;
 }
 button:hover {
   background: #1a7ab6;
+}
+label {
+  display: block;
+  /* margin-bottom: 0.5em; */
+  color: #2a5d84;
+  font-weight: bold;
 }
