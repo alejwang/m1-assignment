@@ -16,10 +16,7 @@
         <legend>Contact</legend>
         <label>Enter your full name</label>
         <input type="text" name="name">
-        <label>Enter your email</label>
-        <input type="email" name="email">
-        <label>Enter your phone</label>
-        <input type="text" name="phone">
+        
         
         <label>Select your gender</label>
         <input type="radio" name="gender" value="male">Male
@@ -27,10 +24,16 @@
         
         <label>How should we contact you?</label>
         
-        <select>
+        <select id="contactMethod" name="contactMethod">
             <option>Email</option>
             <option>Phone</option>
         </select>
+
+        <label class="emailLabel">Enter your email</label>
+        <input type="email" name="email">
+        <label class="phoneLabel">Enter your phone</label>
+        <input type="text" name="phone">
+
         <br>Leave a message<br>
         <textarea rows="5" cols="30"></textarea>
         <input class="button" type="submit" value="Send">
@@ -38,5 +41,26 @@
     </fieldset>
 
   <p><a href="index.html">← Back to Home</a></p>
+
+  <script>
+    document.querySelector('input[name="phone"]').style.display = "none";
+    
+    var contactMethod = document.getElementById("contactMethod");
+    contactMethod.addEventListener("change", function() {
+        if (this.value === "Email") {
+            document.querySelector('input[name="email"]').style.display = "block";
+            document.querySelector('label.emailLabel').style.display = "block";
+            document.querySelector('label.phoneLabel').style.display = "none";
+            document.querySelector('input[name="phone"]').style.display = "none";
+        } else {
+            document.querySelector('input[name="email"]').style.display = "none";
+            document.querySelector('label.emailLabel').style.display = "none";
+            document.querySelector('label.phoneLabel').style.display = "block";
+            document.querySelector('input[name="phone"]').style.display = "block";
+        }
+    });
+    
+
+  </script>
 </body>
 </html>
