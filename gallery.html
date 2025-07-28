@@ -6,31 +6,47 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Seattle Pet Gallery</h1>
-  <ul class="gallery-list" id="gallery">
-    <!-- Photos will be injected by JavaScript -->
-  </ul>
-  <script>
-    // JavaScript array of photo URLs
-const photoUrls = [
-  "https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg", 
-  "https://images.pexels.com/photos/5255219/pexels-photo-5255219.jpeg", 
-  "https://images.pexels.com/photos/302280/pexels-photo-302280.jpeg",  
-  "https://images.pexels.com/photos/792381/pexels-photo-792381.jpeg",   
-  "https://images.pexels.com/photos/145939/pexels-photo-145939.jpeg",   
-  "https://images.pexels.com/photos/104827/cat-pet-animal-domestic-104827.jpeg" 
-];
+    <h1>Seattle Pet Gallery</h1>
+    <ul class="gallery-list" id="gallery">
+        <!-- Photos will be injected by JavaScript -->
+    </ul>
+    <script>
+        const photoUrls = [
+            "https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg", 
+            "https://images.pexels.com/photos/5255219/pexels-photo-5255219.jpeg", 
+            "https://images.pexels.com/photos/302280/pexels-photo-302280.jpeg",  
+            "https://images.pexels.com/photos/104827/cat-pet-animal-domestic-104827.jpeg" 
+        ];
 
-    const gallery = document.getElementById('gallery');
-    photoUrls.forEach(url => {
-      const li = document.createElement('li');
-      const img = document.createElement('img');
-      img.src = url;
-      img.alt = "Adoptable pet";
-      img.className = "photo";
-      li.appendChild(img);
-      gallery.appendChild(li);
-    });
-  </script>
+        const captions = [
+            "Cute puppy looking for a home",
+            "Adorable dog ready for adoption",
+            "Playful kitten seeking a family",
+            "Sweet cat in need of love"
+        ];
+
+        const gallery = document.getElementById('gallery');
+        photoUrls.forEach((url, i) => {
+            const li = document.createElement('li');
+            li.className = "gallery-item";
+            const img = document.createElement('img');
+            img.src = url;
+            img.alt = "Adoptable pet";
+            img.className = "photo";
+            li.appendChild(img);
+
+            const caption = document.createElement('p');
+            caption.textContent = captions[i];
+            caption.className = "caption";
+            li.appendChild(caption);
+
+            const desc = document.createElement('div');
+            desc.textContent = `A photo shows ${captions[i]}`;
+            desc.className = "description";
+            li.appendChild(desc);
+
+            gallery.appendChild(li);
+        });
+    </script>
 </body>
 </html>
